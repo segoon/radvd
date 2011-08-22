@@ -1,5 +1,5 @@
 /*
- *   $Id: process.c,v 1.26.2.2 2011/08/22 12:28:46 reubenhwk Exp $
+ *   $Id: process.c,v 1.26.2.3 2011/08/22 12:30:47 reubenhwk Exp $
  *
  *   Authors:
  *    Pedro Roque		<roque@di.fc.ul.pt>
@@ -132,12 +132,12 @@ process(struct Interface *ifacel, unsigned char *msg, int len,
 
 	if (icmph->icmp6_type == ND_ROUTER_SOLICIT)
 	{
-		dlog(LOG_WARNING, 4, "received RS from %s", addr_str);
+		dlog(LOG_DEBUG, 2, "received RS from %s", addr_str);
 		process_rs(iface, msg, len, addr);
 	}
 	else if (icmph->icmp6_type == ND_ROUTER_ADVERT)
 	{
-		dlog(LOG_WARNING, 4, "received RA from %s", addr_str);
+		dlog(LOG_DEBUG, 2, "received RA from %s", addr_str);
 		process_ra(iface, msg, len, addr);
 	}
 }
